@@ -1,0 +1,7 @@
+
+.logs/
+.static/
+.templates/
+
+.env
+**/node_modules/

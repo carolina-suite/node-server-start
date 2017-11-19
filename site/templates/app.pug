@@ -1,0 +1,14 @@
+extends ./base.pug 
+
+block css
+  if locals.cssFiles
+    each cssFile in cssFiles
+      link(rel="stylesheet" href=cssFile)
+  link(rel="stylesheet" href="/static/css/" + appName + ".css")
+block body
+  #root
+block js
+  if locals.jsFiles
+    each jsFile in jsFiles
+      script(src=jsFile)
+  script(src="/static/js/" + appName + ".js")
