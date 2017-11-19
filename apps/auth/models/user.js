@@ -18,6 +18,20 @@ var userSchema = new mongoose.Schema({
 userSchema.methods.getAdminDisplayName = function() {
   return this.username;
 }
+userSchema.statics.getAdminTemplate = function() {
+
+  var salt = crypto.randomBytes(32).toString('hex');
+  var password = crypto.pbkdf2Sync('password123', salt, 1000, 64, 'sha512').toString('hex');
+
+  return {
+    username: 'username',
+    password: password,
+    salt: salt,
+    email: 'email@example.com',
+    name: 'John Doe',
+    isAdmin: false
+  };
+};
 
 userSchema.methods.setPassword = function (password) {
   this.salt = crypto.randomBytes(32).toString('hex');
