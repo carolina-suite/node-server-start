@@ -8,6 +8,9 @@ class AdminLib {
   async getObjects(model, page) {
     return await CarolinaAuth.authPost(`/admin/api/list-objects/${model}/${page}`);
   }
+  async getModelTemplate(model) {
+    return await CarolinaAuth.authPost(`/admin/api/get-object-start/${model}`);
+  }
   async getObject(model, id) {
     return await CarolinaAuth.authPost(`/admin/api/get-object/${model}/${id}`);
   }
