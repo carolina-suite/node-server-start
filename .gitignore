@@ -3,6 +3,7 @@
 .logs/
 .static/
 .templates/
+.tmp/
 
 .env
 **/node_modules/

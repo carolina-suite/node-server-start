@@ -9,7 +9,7 @@ this.SITE = {
   email: {
     address: 'webmaster@example.com',
     // email service choice
-    serviceName: 'ConsoleEmailService',
+    serviceName: 'HtmlEmailService',
     // only used for AwsSesEmailService
     awsProfile: 'default',
     awsRegion: 'us-west-2'
