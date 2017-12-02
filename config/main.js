@@ -6,6 +6,14 @@ this.SITE = {
     name: 'carolina',
     port: 27017
   },
+  email: {
+    address: 'webmaster@example.com',
+    // email service choice
+    serviceName: 'ConsoleEmailService',
+    // only used for AwsSesEmailService
+    awsProfile: 'default',
+    awsRegion: 'us-west-2'
+  },
   // npm log levels
   logLevel: {
     db: 'warning',

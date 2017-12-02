@@ -18,6 +18,13 @@ for (var i = 0; i < apps.length; ++i) {
   if (fs.existsSync(path.resolve(__dirname, 'apps', apps[i], 'models'))) {
     require(`./apps/${apps[i]}/models`);
   }
+  // copy heml
+  if (fs.existsSync(path.resolve(__dirname, 'apps', apps[i], 'heml'))) {
+    fs.copySync(
+      path.resolve(__dirname, 'apps', apps[i], 'heml'),
+      path.resolve(__dirname, '.heml', apps[i])
+    );
+  }
   // copy static
   if (fs.existsSync(path.resolve(__dirname, 'apps', apps[i], 'static'))) {
     fs.copySync(

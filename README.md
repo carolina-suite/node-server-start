@@ -1,6 +1,12 @@
 
 ## Overview #
 
+### Install #
+
+`npm install`
+
+`npm install -g webpack`
+
 ### Initialize #
 
 `npm run initialize`
@@ -50,6 +56,16 @@ The `tailwind` dir must contain `tailwind.js` and `style.css`.
 * `tailwind`: Tailwind config in `tailwind/tailwind.js` and styles in`tailwind/styles.css`.
 * `webpack.js`: Exports to include in the site's webpack build.
 
+## Configuration #
+
+### Email #
+
+Choose an e-mail service:
+
+* `ConsoleEmailService`: Prints all e-mails to the terminal.
+* `HtmlFileEmailService`: Writes all e-mails to HTML files in `.tmp`.
+* `AwsSesEmailService`: Requires the AWS options to be supplied and correct.
+
 ## Other Notes #
 
 Bring your own admin like:
@@ -57,3 +73,6 @@ Bring your own admin like:
 * [MongoExpress](https://www.npmjs.com/package/mongo-express)
 * [MongoUi](https://www.npmjs.com/package/mongoui).
 * [RoboMongo](https://robomongo.org)
+
+A really bad one is partially done at `/admin`, but you can safely delete the
+`apps/admin` directory.
