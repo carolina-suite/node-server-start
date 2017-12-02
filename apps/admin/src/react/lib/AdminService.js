@@ -5,6 +5,11 @@ class AdminLib {
   async getApps() {
     return await CarolinaAuth.authPost('/admin/api/list-apps');
   }
+  async createObject(model, object) {
+    return await CarolinaAuth.authPost(`/admin/api/create-object/${model}`, {
+      obj: object
+    });
+  }
   async getObjects(model, page) {
     return await CarolinaAuth.authPost(`/admin/api/list-objects/${model}/${page}`);
   }

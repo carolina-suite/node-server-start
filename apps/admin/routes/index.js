@@ -17,6 +17,7 @@ module.exports = function(fastify, options, next) {
   fastify.get('/', main);
 
   fastify.all('/api/list-apps', require('./api/list-apps'));
+  fastify.all('/api/create-object/:model', require('./api/create-object'));
   fastify.all('/api/list-objects/:model/:page', require('./api/list-objects'));
   fastify.all('/api/get-object-start/:model', require('./api/get-object-start'));
   fastify.all('/api/get-object/:model/:object', require('./api/get-object'));

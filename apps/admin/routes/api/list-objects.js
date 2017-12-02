@@ -4,7 +4,7 @@ var path = require('path');
 
 var mongoose = require('mongoose');
 
-var PAGE_SIZE = 10;
+var PAGE_SIZE = 5;
 
 async function listObjects(request, reply) {
 

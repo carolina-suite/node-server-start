@@ -66,6 +66,15 @@ class Model extends Component {
 
         <div className="flex flex-wrap">
 
+        <div class="p-4 w-1/4">
+          <div class="bg-text1 border-b-4 border-border p-4 pin rounded text-header-text">
+
+            <h4 className="mb-6">New Object</h4>
+
+            <Link className="bg-header-bg border border-border m-2 no-underline rounded-lg px-4 py-2 text-header-text" to={'/create/' + this.state.modelName}>Create</Link>
+          </div>
+        </div>
+
           <div className="p-4 w-1/4">
             <div class="bg-text1 border-b-4 border-border p-4 pin rounded text-header-text">
 

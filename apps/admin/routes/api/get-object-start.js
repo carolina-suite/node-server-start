@@ -10,9 +10,7 @@ async function getObjectStart(request, reply) {
   var startObject = {};
 
   try {
-    console.log(Model.getAdminTemplate);
     startObject = Model.getAdminTemplate();
-    console.log(startObject);
   }
   catch (err) {}
 

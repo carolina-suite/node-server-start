@@ -4,6 +4,7 @@ import { Route, Switch } from 'react-router-dom';
 
 import AdminHeader from './components/AdminHeader';
 import AdminSidebar from './components/AdminSidebar';
+import CreateObject from './components/CreateObject';
 import DeleteObject from './components/DeleteObject';
 import Home from './components/Home';
 import Model from './components/Model';
@@ -23,6 +24,7 @@ class Main extends Component {
             <Switch>
               <Route exact path="/" component={Home} />
               <Route exact path="/model/:modelName" component={Model} />
+              <Route exact path="/create/:modelName" component={CreateObject} />
               <Route exact path="/view/:modelName/:objectId" component={ViewObject} />
               <Route exact path="/edit/:modelName/:objectId" component={UpdateObject} />
               <Route exact path="/delete/:modelName/:objectId" component={DeleteObject} />
