@@ -44,6 +44,9 @@ for (var i = 0; i < apps.length; ++i) {
     var routes = require(`./apps/${apps[i]}/routes`);
     server.register(routes, { prefix: `/${apps[i]}` });
   }
+
+  // run the app's index.js file
+  var appIndex = require(`./apps/${aps[i]}`);
 }
 
 // SITE static

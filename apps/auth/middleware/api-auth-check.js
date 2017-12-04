@@ -31,6 +31,7 @@ async function apiAuthCheck (request, reply, next) {
 
   request.user = await User.findOne({ username: tokenValidation.username });
   logger.auth.log('verbose', `Request permitted with authenticated user ${request.user.username}.`);
+
   next();
 }
 module.exports = apiAuthCheck;

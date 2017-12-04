@@ -55,6 +55,8 @@ The `tailwind` dir must contain `tailwind.js` and `style.css`.
 * `src`: A good place for your js files.
 * `tailwind`: Tailwind config in `tailwind/tailwind.js` and styles in`tailwind/styles.css`.
 * `webpack.js`: Exports to include in the site's webpack build.
+* `index.js`: Required but can be blank. Will be ran whenever the site is
+started, so its good place to put `setInterval` entries.
 
 ## Configuration #
 
