@@ -46,7 +46,7 @@ for (var i = 0; i < apps.length; ++i) {
   }
 
   // run the app's index.js file
-  var appIndex = require(`./apps/${aps[i]}`);
+  var appIndex = require(`./apps/${apps[i]}`);
 }
 
 // SITE static
@@ -64,6 +64,7 @@ if (fs.existsSync(path.resolve(__dirname, 'site', 'templates'))) {
   );
 }
 
+// serve static files
 server.register(fastifyStatic, {
   root: path.join(__dirname, '.static'),
   prefix: '/static/'
