@@ -1,10 +1,18 @@
 
 import axios from 'axios';
+import localforage from 'localforage';
 
 class AuthLib {
   constructor() {
+    var self = this;
+    this.db = localforage.createInstance({
+      name: 'CarolinaAuth',
+      storeName: 'carolina_auth'
+    });
     this.currentUser = null;
-    this.token = window.localStorage.getItem('carolinaToken');
+    this.db.getItem('token').then((token) => {
+      self.token = token;
+    }).catch((err) => {});
     this.axios = axios.create({
       headers: { 'Content-Type': 'application/json' },
       validateStatus: function(s) {
@@ -19,7 +27,7 @@ class AuthLib {
     var res = await this.axios.post(url, data);
 
     if (redirectPath && res.status == 401) {
-      window.localStorage.setItem('carolinaNext', redirectPath);
+      await this.db.setItem('next', redirectPath);
       window.location = '/auth';
     }
     else return res.data;
@@ -30,14 +38,14 @@ class AuthLib {
       password: password
     });
     if (res.data.success == true) {
-      window.localStorage.setItem('carolinaToken', res.data.token);
+      this.db.setItem('token', res.data.token);
       this.token = res.data.token;
       this.currentUser = username;
     }
     return res.data;
   }
   logout() {
-    window.localStorage.removeItem('carolinaToken');
+    this.db.removeItem('token');
     this.currentUser = null;
     this.token = null;
   }
@@ -48,14 +56,20 @@ class AuthLib {
       password: password
     });
     if (res.data.success == true) {
-      window.localStorage.setItem('carolinaToken', res.data.token);
+      this.db.setItem('token', res.data.token);
       this.token = res.data.token;
     }
     return res.data;
   }
   async authCheck() {
-    var res = await this.authPost('/auth/api/check', {}, null);
-    return res.success;
+    try {
+      this.token = await this.db.getItem('token');
+      var res = await this.authPost('/auth/api/check', {}, null);
+      return res.success;
+    }
+    catch (err) {
+      return false;
+    }
   }
   async getProfile() {
     return await this.authPost('/auth/api/get-profile', {}, null);
