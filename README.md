@@ -31,7 +31,6 @@ You can load fixtures this way.
 Loads a fixture into the database. For example, `npm run fixture myfix` will
 load a fixture defined in `fixtures/myfix.js`.
 
-
 ### Build Js #
 
 `npm run js`

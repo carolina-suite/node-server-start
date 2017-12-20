@@ -9,6 +9,7 @@ var logger = require('./site/logger');
 
 var server = fastify();
 
+fs.ensureDirSync(path.resolve(__dirname, '.heml'));
 fs.ensureDirSync(path.resolve(__dirname, '.static'));
 fs.ensureDirSync(path.resolve(__dirname, '.templates'));
 
