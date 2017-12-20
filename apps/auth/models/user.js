@@ -54,7 +54,6 @@ userSchema.methods.generateJwtToken = function (secret) {
 userSchema.methods.addGroups = async function(groupNames) {
   var Group = require('./group');
   for (var i = 0; i < groupNames.length; ++i) {
-    console.log(groupNames[i]);
     var group = await Group.findOne({ name: groupNames[i] });
     this.groups.push(group._id);
   }
