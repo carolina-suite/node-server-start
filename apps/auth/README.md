@@ -140,10 +140,20 @@ Response Data:
 
 ### Fastify Middleware #
 
+#### API User Extract #
+
+A middleware guard that checks requests for a valid `carolinaToken` if present.
+
+If the token is valid and belongs to a user,
+the user is added to the request as `request.user`.
+Otherwise, `request.user` is set to null.
+
 #### API Auth Check #
 
 A middleware guard that allows requests with a valid `carolinaToken` to pass,
 and rejects all other requests.
+
+Successful requests have the user added to the request as `request.user`.
 
 Designed for use as a Fastify "beforeHandler".
 
