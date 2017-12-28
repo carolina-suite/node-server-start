@@ -70,6 +70,14 @@ It does the following three things:
 
 Brief docs and/or link to long docs.
 
+## Misc #
+
+Allow node to bind port 80:
+
+```
+sudo setcap 'cap_net_bind_service=+ep' `which node`
+```
+
 ## Files #
 
 Overview of files in the repo.
