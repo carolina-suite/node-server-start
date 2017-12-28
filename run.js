@@ -9,6 +9,8 @@ var logger = require('./site/logger');
 
 var server = fastify();
 
+var config = require('./config');
+
 fs.ensureDirSync(path.resolve(__dirname, '.heml'));
 fs.ensureDirSync(path.resolve(__dirname, '.static'));
 fs.ensureDirSync(path.resolve(__dirname, '.templates'));
@@ -78,7 +80,13 @@ server.addHook('preHandler', function(request, reply, next) {
   logger.SITE.log('verbose', `${request.req.method} ${request.req.url} from ${request.req.socket.remoteFamily} ${request.req.socket.remoteAddress}:${request.req.socket.remotePort}.`);
   next();
 });
-server.listen(80, function(err) {
+
+var runConfig = process.argv[2];
+if (!runConfig) runConfig = 'default';
+
+var port = config.SITE.runConfig[runConfig].port;
+
+server.listen(port, function(err) {
   if (err) throw err;
-  logger.SITE.log('info', `Server listening on port 8001.`);
+  logger.SITE.log('info', `Server listening on port ${port}.`);
 });
