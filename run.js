@@ -78,7 +78,7 @@ server.addHook('preHandler', function(request, reply, next) {
   logger.SITE.log('verbose', `${request.req.method} ${request.req.url} from ${request.req.socket.remoteFamily} ${request.req.socket.remoteAddress}:${request.req.socket.remotePort}.`);
   next();
 });
-server.listen(8001, function(err) {
+server.listen(80, function(err) {
   if (err) throw err;
   logger.SITE.log('info', `Server listening on port 8001.`);
 });
