@@ -68,7 +68,7 @@ It does the following three things:
 
 ## Docs #
 
-Brief docs and/or link to long docs.
+See the [Docs](./docs/).
 
 ## Misc #
 
@@ -78,20 +78,8 @@ Allow node to bind port 80:
 sudo setcap 'cap_net_bind_service=+ep' `which node`
 ```
 
-## Files #
-
-Overview of files in the repo.
-
-## Contributing #
-
-Guide to contributing and updating this repo.
-
 ## Acknowledgements #
 
 ### Authors #
 
 * John F Marion
-
-### Built With #
-
-### Other #

@@ -33,6 +33,27 @@ this.SITE = {
 };
 ```
 
+### Run Configuration #
+
+The run configuration section looks like this:
+
+```js
+this.SITE = {
+  // more
+  runConfig: {
+    'default': {
+      port: 8001
+    },
+    dev: { port: 8001 },
+    prod: { port: 80 }
+  },
+  // more
+}
+```
+
+Ports should be defined for various run options and the "default"
+configuration MUST exist.
+
 ### Email #
 
 `email`

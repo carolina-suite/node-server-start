@@ -6,7 +6,7 @@
 There are two ways to run your site:
 
 * `npm run dev`: Builds frontend stuff from scratch and runs the server.
-* `node run`: Runs the server.
+* `node run {runConfig}`: Runs the server.
 
 ### Frontend Build #
 
